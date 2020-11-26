@@ -13,21 +13,18 @@ resource "aws_lambda_function" "api" {
 
   role = aws_iam_role.api_lambda.arn
 
-/*
   vpc_config {
     security_group_ids = [aws_security_group.lambda.id]
-    // TODO: Should be public?
     subnet_ids = [for subnet in aws_subnet.private: subnet.id]
   }
 
   environment {
     variables = {
       MICRONAUT_ENVIRONMENTS = "aws"
-      //      AWS_S3_REGION = var.region
-      JDBC_DATABASE_URL = "jdbc:postgresql://${aws_db_instance.rds.address}:${aws_db_instance.rds.port}/${aws_db_instance.rds.name}"
+//      AWS_S3_REGION = var.region
+      JDBC_DATABASE_URL = "jdbc:mariadb://${aws_db_instance.rds.address}:${aws_db_instance.rds.port}/${aws_db_instance.rds.name}"
       DATABASE_USERNAME = aws_db_instance.rds.username
       DATABASE_PASSWORD = aws_db_instance.rds.password
     }
   }
-*/
 }
