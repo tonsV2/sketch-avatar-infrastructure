@@ -25,3 +25,7 @@ variable "database_engine_version" {
 variable "database_port" {
   default = 3306
 }
+
+variable "batch_size" {
+  default = 1
+}
