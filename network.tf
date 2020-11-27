@@ -6,6 +6,13 @@ resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr_block
 }
 
+resource "aws_vpc_endpoint" "s3" {
+  vpc_id = aws_vpc.vpc.id
+  service_name = "com.amazonaws.${var.region}.s3"
+
+  route_table_ids = [aws_vpc.vpc.main_route_table_id]
+}
+
 resource "aws_subnet" "private" {
   count = length(var.cidr_block_subnets_private)
   cidr_block = var.cidr_block_subnets_private[count.index]
