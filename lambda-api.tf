@@ -22,6 +22,7 @@ resource "aws_lambda_function" "api" {
     variables = {
       MICRONAUT_ENVIRONMENTS = "aws"
 //      AWS_S3_REGION = var.region
+      // TODO: This is a bad idea! This is the way... https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Connecting.Java.html
       JDBC_DATABASE_URL = "jdbc:mariadb://${aws_db_instance.rds.address}:${aws_db_instance.rds.port}/${aws_db_instance.rds.name}"
       DATABASE_USERNAME = aws_db_instance.rds.username
       DATABASE_PASSWORD = aws_db_instance.rds.password
