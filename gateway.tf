@@ -1,6 +1,7 @@
 resource "aws_api_gateway_rest_api" "gateway" {
   name = "ServerlessExample"
   description = "Terraform Serverless Application Example"
+  binary_media_types = ["*/*"]
 }
 
 resource "aws_api_gateway_resource" "proxy" {
