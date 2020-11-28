@@ -6,7 +6,7 @@ resource "aws_lambda_function" "legacy2modern" {
   s3_bucket = "mn-lambda"
   s3_key = "mn/v1.0.0/sketch-avatar-api-1.0.0-all.jar"
 
-  handler = "sketch.avatar.api.handler.LegacyS3EventRequestHandler"
+  handler = "sketch.avatar.api.handler.LegacyToModernRequestHandler"
   runtime = "java11"
 
   memory_size = 1024
