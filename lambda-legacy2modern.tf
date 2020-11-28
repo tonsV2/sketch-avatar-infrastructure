@@ -10,6 +10,7 @@ resource "aws_lambda_function" "legacy2modern" {
   runtime = "java11"
 
   memory_size = 1024
+  reserved_concurrent_executions = var.reserved_concurrent_executions
 
   role = aws_iam_role.legacy2modern.arn
 

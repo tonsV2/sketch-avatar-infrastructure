@@ -1,6 +1,6 @@
 resource "aws_api_gateway_rest_api" "gateway" {
-  name = "ServerlessExample"
-  description = "Terraform Serverless Application Example"
+  name = "SketchAvatarApi"
+  description = "Sketch Avatar Api Gateway"
   binary_media_types = ["*/*"]
 }
 

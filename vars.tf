@@ -30,6 +30,18 @@ variable "batch_size" {
   default = 1
 }
 
+variable "reserved_concurrent_executions" {
+  default = 1
+}
+
+variable "max_connections" {
+  default = 80
+}
+
+variable "instance_class" {
+  default = "db.t2.micro"
+}
+
 variable "s3_legacy_bucket" {
   default = "sketch-legacy"
 }

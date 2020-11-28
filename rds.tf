@@ -8,7 +8,7 @@ resource "aws_db_instance" "rds" {
   allocated_storage = 10
   engine = var.database_engine
   engine_version = var.database_engine_version
-  instance_class = "db.t2.micro"
+  instance_class = var.instance_class
   username = "someUserName"
   password = random_password.password.result
   skip_final_snapshot = true
@@ -17,7 +17,17 @@ resource "aws_db_instance" "rds" {
   vpc_security_group_ids = [aws_security_group.rds.id]
   db_subnet_group_name = aws_db_subnet_group.db.name
 
-//  iam_database_authentication_enabled = true
+  parameter_group_name = aws_db_parameter_group.db.name
+}
+
+resource "aws_db_parameter_group" "db" {
+  name = "rds-pg"
+  family = "mariadb10.5"
+
+  parameter {
+    name = "max_connections"
+    value = var.max_connections
+  }
 }
 
 resource "random_string" "username" {
