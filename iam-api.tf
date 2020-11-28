@@ -35,10 +35,24 @@ resource "aws_iam_policy" "s3" {
 data "aws_iam_policy_document" "s3" {
   statement {
     effect = "Allow"
-    resources = ["*"]
+    resources = [
+      "arn:aws:s3:::${var.s3_legacy_bucket}/*"
+    ]
 
     actions = [
-      "s3:*",
+      "s3:GetObject"
+    ]
+  }
+
+  statement {
+    effect = "Allow"
+    resources = [
+      "arn:aws:s3:::${var.s3_modern_bucket}/*"
+    ]
+
+    actions = [
+      "s3:GetObject",
+      "s3:PutObject",
     ]
   }
 }

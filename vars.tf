@@ -29,3 +29,11 @@ variable "database_port" {
 variable "batch_size" {
   default = 1
 }
+
+variable "s3_legacy_bucket" {
+  default = "sketch-legacy"
+}
+
+variable "s3_modern_bucket" {
+  default = "sketch-modern"
+}
