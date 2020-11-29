@@ -25,28 +25,28 @@ scripts/create_test_data.sh
 ```
 
 # API interaction
-The following commands are executed using [HTTPie](https://httpie.io/).
+The following commands are executed using [HTTPie](https://httpie.io/) in a Bash shell.
 
 The API offers no way to upload avatar images to S3. This has to be done manually or by invoking the Worker Lambda.
 
 ## List all avatars
 ```bash
-http (terraform output api_url)
+http $(terraform output api_url)
 ```
 
 ## Post new avatar
 ```bash
-echo '{"key": "some/key/avatar.png"}' | http (terraform output api_url)
+echo '{"key": "some/key/avatar.png"}' | http $(terraform output api_url)
 ```
 
 ## Show avatar meta data by id
 ```bash
-http (terraform output api_url)/1
+http $(terraform output api_url)/1
 ```
 
 ## Retrieve an avatar by id
 ```bash
-http (terraform output api_url)/1/avatar > avatar.png
+http $(terraform output api_url)/1/avatar > avatar.png
 ```
 
 # Invoke the Worker Lambda
