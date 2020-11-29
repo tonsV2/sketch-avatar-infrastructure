@@ -27,11 +27,11 @@ variable "database_port" {
 }
 
 variable "batch_size" {
-  default = 1
+  default = 5
 }
 
 variable "reserved_concurrent_executions" {
-  default = 1
+  default = 2
 }
 
 variable "max_connections" {
