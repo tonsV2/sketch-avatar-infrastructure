@@ -14,7 +14,7 @@ aws s3 ls s3://$MODERN_BUCKET/avatar/ | cut -c32- | xargs -I '{}' echo "avatar/{
 http delete "$(terraform output api_url)/delete-avatars"
 
 # Update the database
-xargs -a /tmp/avatars.txt -I '{}' sh -c "echo '{\"s3key\": \"{}\"}' | http $(terraform output api_url)"
+ xargs -P 4 -a /tmp/avatars.txt -I '{}' sh -c "echo '{\"s3key\": \"{}\"}' | http $(terraform output api_url)"
 
 # Show content of database
 http "$(terraform output api_url)"
