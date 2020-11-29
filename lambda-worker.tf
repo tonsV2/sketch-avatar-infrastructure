@@ -1,4 +1,4 @@
-resource "aws_lambda_function" "legacy2modern" {
+resource "aws_lambda_function" "worker" {
   function_name = "LegacyToModernRequestHandler"
 
   timeout = var.lambda_worker_timeout
@@ -12,7 +12,7 @@ resource "aws_lambda_function" "legacy2modern" {
   memory_size = var.lambda_worker_memory_size
   reserved_concurrent_executions = var.lambda_worker_reserved_concurrent_executions
 
-  role = aws_iam_role.legacy2modern.arn
+  role = aws_iam_role.worker.arn
 
   vpc_config {
     security_group_ids = [aws_security_group.lambda.id]
