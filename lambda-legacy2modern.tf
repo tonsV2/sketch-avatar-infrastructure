@@ -1,16 +1,16 @@
 resource "aws_lambda_function" "legacy2modern" {
-  function_name = "LegacyS3EventRequestHandler"
+  function_name = "LegacyToModernRequestHandler"
 
-  timeout = 30
+  timeout = var.lambda_worker_timeout
 
-  s3_bucket = "mn-lambda"
-  s3_key = "mn/v1.0.0/sketch-avatar-api-1.0.0-all.jar"
+  s3_bucket = var.lambda_worker_s3_bucket
+  s3_key = var.lambda_worker_s3_key
 
-  handler = "sketch.avatar.api.handler.LegacyToModernRequestHandler"
-  runtime = "java11"
+  handler = var.lambda_worker_handler
+  runtime = var.lambda_worker_runtime
 
-  memory_size = 1024
-  reserved_concurrent_executions = var.reserved_concurrent_executions
+  memory_size = var.lambda_worker_memory_size
+  reserved_concurrent_executions = var.lambda_worker_reserved_concurrent_executions
 
   role = aws_iam_role.legacy2modern.arn
 
