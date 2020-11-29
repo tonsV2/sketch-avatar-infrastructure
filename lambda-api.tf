@@ -10,6 +10,7 @@ resource "aws_lambda_function" "api" {
   runtime = "java11"
 
   memory_size = 1024
+  reserved_concurrent_executions = 2
 
   role = aws_iam_role.api_lambda.arn
 
