@@ -4,7 +4,7 @@ This project instantiate infrastructure on AWS consisting of an API Gateway serv
 
 The Lambda definition behind the API can be found [here](lambda-api.tf) and configured from [here](vars-lambda_api.tf).
 
-Furthermore, another Lambda function along with an SQS queue will be instantiated. It's defined [here](lambda-worker.tf) and configured from [here](vars-lambda_worker.tf).
+Furthermore, another Lambda function, along with an SQS queue, will be instantiated. It's defined [here](lambda-worker.tf) and configured from [here](vars-lambda_worker.tf).
 
 # Prerequisites
 Before instantiating this infrastructure a few things need to be in place.
@@ -25,7 +25,7 @@ scripts/create_test_data.sh
 ```
 
 # API interaction
-The following commands are executed using [HTTPie](https://httpie.io/) in a Bash shell.
+The following commands are to be executed using [HTTPie](https://httpie.io/) in a Bash shell.
 
 The API offers no way to upload avatar images to S3. This has to be done manually or by invoking the Worker Lambda.
 
