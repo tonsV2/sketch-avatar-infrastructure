@@ -63,6 +63,8 @@ The above mentioned configurations can be found in [vars-lambda_worker.tf](vars-
 
 * When you walk in a production environment you better tread lightly and for this reason I do not delete avatars from the legacy bucket. The way I would go about a task like this would be to create a "Delete legacy bucket" ticket/task/jira and put it in the backlog for next month. This will ensure that everything actually did go as smoothly as assumed and further more we'd be able to see if any writes to the bucket has been done recently, so we ensure that no other system is actually using this bucket before deleting it
 
+* I don't use terraform modules and I should
+
 # Conclusion
 I ended up spending a lot longer on this project than I anticipated. I hadn't touch AWS for more than two years, I had close to no experience with Lambda's and hadn't used Micronaut's serverless framework before.
 
